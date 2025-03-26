@@ -1,4 +1,6 @@
 # Prerequisites
+# Build directory
+/build
 *.d
 
 # Compiled Object files
