@@ -9,14 +9,17 @@ class SimViconTracker : public vrpn_Tracker {
 public:
     SimViconTracker(const std::string& name, vrpn_Connection* c,
                    double x, double y, double z,
-                   double qw, double qx, double qy, double qz);
+                   double qx, double qy, double qz, double qw);
     
     void send_sim_pose();
     void mainloop() override;
+    
+    void updatePosition(double x, double y, double z);
+    void updateQuaternion(double qx, double qy, double qz, double qw);
 
 private:
-    double init_pos[3];
-    double init_quat[4];
+    double current_pos[3];
+    double current_quat[4];
 };
 
 #endif
