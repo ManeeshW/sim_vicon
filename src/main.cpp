@@ -20,7 +20,7 @@ void trackerThread(SimViconTracker* tracker, vrpn_Connection* connection, int fr
 
 int main(int argc, char* argv[]) {
     // Read configuration
-    Config config = readConfig("sim_vicon.ini");
+    Config config = readConfig("../sim_vicon.ini");
     
     if (config.server_ip.empty()) {
         std::cerr << "Error: Server IP is empty. Using default '10.0.0.200'.\n";
