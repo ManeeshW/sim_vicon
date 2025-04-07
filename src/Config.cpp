@@ -1,3 +1,4 @@
+// Config.cpp
 #include "Config.h"
 #include <fstream>
 #include <sstream>
@@ -41,6 +42,16 @@ Config readConfig(const std::string& filename) {
                 if (key == "yaw") config.euler[0] = std::stod(value);
                 else if (key == "pitch") config.euler[1] = std::stod(value);
                 else if (key == "roll") config.euler[2] = std::stod(value);
+            }
+            else if (section == "trajectory") {
+                if (key == "reset_time") config.trajectory_reset_time = std::stod(value);
+                else if (key == "lissajous_A") config.lissajous_A = std::stod(value);
+                else if (key == "lissajous_B") config.lissajous_B = std::stod(value);
+                else if (key == "lissajous_a") config.lissajous_a = std::stod(value);
+                else if (key == "lissajous_b") config.lissajous_b = std::stod(value);
+                else if (key == "lissajous_delta") config.lissajous_delta = std::stod(value);
+                else if (key == "circular_radius") config.circular_radius = std::stod(value);
+                else if (key == "circular_speed") config.circular_speed = std::stod(value);
             }
         } catch (const std::exception& e) {
             std::cerr << "Error parsing " << key << "=" << value << ": " << e.what() << "\n";
